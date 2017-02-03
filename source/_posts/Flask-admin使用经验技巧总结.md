@@ -7,6 +7,7 @@ categories: 技术研究
 
 > **前段时间自学了Flask框架，看得狗书入门，最近做一个新闻发布网站准备拿Flask来做，尝试一下Flask快速开发，并且练练手，于是接触到了Flask-admin。
 总结一下Flask-admin**
+
 <!--more-->
 
 # 首先需要导入的包
