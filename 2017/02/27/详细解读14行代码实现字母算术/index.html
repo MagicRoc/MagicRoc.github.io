@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,深入python3," />
+  <meta name="keywords" content="Python,深入python3," />
 
 
 
@@ -86,13 +86,13 @@
 
 <meta name="description" content="HAWAII + IDAHO + IOWA + OHIO == STATES510199 + 98153 + 9301 + 3593 == 621246What is this ？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解读14行代码实现字母算术">
-<meta property="og:url" content="www.magicroc.com/2017/02/27/解读14行代码实现字母算术/index.html">
+<meta property="og:title" content="详细解读14行代码实现字母算术">
+<meta property="og:url" content="www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/index.html">
 <meta property="og:site_name" content="MagicRoc">
 <meta property="og:description" content="HAWAII + IDAHO + IOWA + OHIO == STATES510199 + 98153 + 9301 + 3593 == 621246What is this ？">
-<meta property="og:updated_time" content="2017-02-28T10:08:36.604Z">
+<meta property="og:updated_time" content="2017-02-28T13:12:01.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解读14行代码实现字母算术">
+<meta name="twitter:title" content="详细解读14行代码实现字母算术">
 <meta name="twitter:description" content="HAWAII + IDAHO + IOWA + OHIO == STATES510199 + 98153 + 9301 + 3593 == 621246What is this ？">
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="www.magicroc.com/2017/02/27/解读14行代码实现字母算术/"/>
+  <link rel="canonical" href="www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/"/>
 
 
 
 
 
-  <title> 解读14行代码实现字母算术 | MagicRoc </title>
+  <title> 详细解读14行代码实现字母算术 | MagicRoc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="www.magicroc.com/2017/02/27/解读14行代码实现字母算术/">
+  <link itemprop="mainEntityOfPage" href="www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="MagicRoc">
@@ -315,7 +315,7 @@
             
             
               
-                解读14行代码实现字母算术
+                详细解读14行代码实现字母算术
               
             
           </h1>
@@ -362,8 +362,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/02/27/解读14行代码实现字母算术/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/解读14行代码实现字母算术/" itemprop="commentCount"></span>
+                <a href="/2017/02/27/详细解读14行代码实现字母算术/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/详细解读14行代码实现字母算术/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,9 +391,10 @@
       
         <blockquote>
 <p><strong>HAWAII + IDAHO + IOWA + OHIO == STATES<br>510199 + 98153 + 9301 + 3593 == 621246<br>What is this ？
-</strong><br><a id="more"></a></p>
-<p>HAWAII + IDAHO + IOWA + OHIO == STATES<br>510199 + 98153 + 9301 + 3593 == 621246<br>H = 5<br>A = 1<br>W = 0<br>I = 9<br>D = 8<br>O = 3<br>S = 6<br>T = 2<br>E = 4</p>
+</strong></p>
 </blockquote>
+<a id="more"></a>
+<p><strong>HAWAII + IDAHO + IOWA + OHIO == STATES<br>510199 + 98153 + 9301 + 3593 == 621246<br>H = 5<br>A = 1<br>W = 0<br>I = 9<br>D = 8<br>O = 3<br>S = 6<br>T = 2<br>E = 4</strong></p>
 <p>像这样的谜题被称为cryptarithms 或者 字母算术(alphametics)。字母可以拼出实际的单词，而如果你把每一个字母都用0–9中的某一个数字代替后, 也同样可以拼出 一个算术等式。关键的地方是找出每个字母都映射到了哪个数字。每个字母所有出现的地方都必须映射到同一个数字，数字不能重复, 并且“单词”不能以0开始。</p>
 <p><strong> 这是&lt;&lt;深入Python3&gt;&gt;上对高级迭代器讲解的例子，仅仅14行代码但有很多知识</strong></p>
 <h1 id="使用re-findall-找出出现的所有字符"><a href="#使用re-findall-找出出现的所有字符" class="headerlink" title="使用re.findall()找出出现的所有字符"></a>使用re.findall()找出出现的所有字符</h1><pre><code>&gt;&gt;&gt; import re
@@ -407,8 +408,7 @@
 <li>puzzle.upper() 将puzzle字符串所有字符大写</li>
 <li>re.findall() findall() 接受一个正则表达式和一个字符串作为参数，然后找出字符串中出现该模式的所有地方</li>
 </ul>
-<p>#使用join连接元素使用set过滤重复字符</p>
-<pre><code>&gt;&gt;&gt; words
+<h1 id="使用join连接元素使用set过滤重复字符"><a href="#使用join连接元素使用set过滤重复字符" class="headerlink" title="使用join连接元素使用set过滤重复字符"></a>使用join连接元素使用set过滤重复字符</h1><pre><code>&gt;&gt;&gt; words
 [&apos;HAWAII&apos;, &apos;IDAHO&apos;, &apos;IOWA&apos;, &apos;OHIO&apos;, &apos;STATES&apos;]
 &gt;&gt;&gt; &apos;&apos;.join(words)
 &apos;HAWAIIIDAHOIOWAOHIOSTATES&apos;
@@ -467,10 +467,8 @@ AssertionError: you are silly
 48
 </code></pre><p><strong>解读</strong></p>
 <ul>
-<li>ord()函数: 它以一个字符作为参数，返回对应的ASCII值<ul>
+<li>ord()函数: 它以一个字符作为参数，返回对应的ASCII值</li>
 <li>(ord(c) for c in sorted_characters) 是一个生成器表达式，最后将生成器表达式传给tuple()，生成器表达式类似一个yield值的匿名函数，返回迭代器。</li>
-</ul>
-</li>
 </ul>
 <h1 id="对出现的所有数字可能的排列进行迭代"><a href="#对出现的所有数字可能的排列进行迭代" class="headerlink" title="对出现的所有数字可能的排列进行迭代"></a>对出现的所有数字可能的排列进行迭代</h1><pre><code> &gt;&gt;&gt; import itertools
 &gt;&gt;&gt; perms = itertools.permutations(&apos;ABC&apos;, 3) 
@@ -497,26 +495,58 @@ AssertionError: you are silly
 </code></pre><p><strong> 解读</strong></p>
 <ul>
 <li>permutations() 函数接受一个序列(这里是3个数字组成的列表) 和一个表示你要的排列的元素的数目的数字。函数返回迭代器，使用for循环对其进行迭代</li>
-<li>guess[:2]将guess序列中进行切片操作，前两个元素返回一个新的序列<h1 id="无数此的转换与匹配检验"><a href="#无数此的转换与匹配检验" class="headerlink" title="无数此的转换与匹配检验"></a>无数此的转换与匹配检验</h1><blockquote>
-<blockquote>
-<blockquote>
-<p>zip([1,2,3],[‘a’,’b’,’c’])<br>  <zip object="" at="" 0x7fb79d0d3ec8=""><br>list(zip(range(0, 3), range(10, 13)))<br>  [(0, 10), (1, 11), (2, 12)]<br>dict(zip([1,2,3],[‘a’,’b’,’c’]))<br>  {1: ‘a’, 2: ‘b’, 3: ‘c’}<br>translation_table = {ord(‘A’): ord(‘1’)}<br>translation_table<br>  {65: 49}<br>‘ABC’.translate(translation_table)<br>  ‘1BC’<br>eval(‘1 + 1 == 2’)<br>  True<br>eval(‘1 + 1 == 3’)<br>  False</zip></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>guess[:2]将guess序列中进行切片操作，前两个元素返回一个新的序列</li>
 </ul>
-<p><strong> 解读</strong></p>
+<h1 id="无数此的转换与匹配检验"><a href="#无数此的转换与匹配检验" class="headerlink" title="无数此的转换与匹配检验"></a>无数此的转换与匹配检验</h1><pre><code>&gt;&gt;&gt; zip([1,2,3],[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+&lt;zip object at 0x7fb79d0d3ec8&gt;
+&gt;&gt;&gt; list(zip(range(0, 3), range(10, 13)))
+[(0, 10), (1, 11), (2, 12)]
+&gt;&gt;&gt; dict(zip([1,2,3],[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]))
+{1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;}
+&gt;&gt;&gt; translation_table = {ord(&apos;A&apos;): ord(&apos;1&apos;)} 
+&gt;&gt;&gt; translation_table 
+{65: 49}
+&gt;&gt;&gt; &apos;ABC&apos;.translate(translation_table) 
+&apos;1BC&apos;
+&gt;&gt;&gt; eval(&apos;1 + 1 == 2&apos;)
+True
+&gt;&gt;&gt; eval(&apos;1 + 1 == 3&apos;)
+False
+</code></pre><p><strong> 解读</strong></p>
 <ul>
 <li>zip()是Python的一个内建函数，它接受一系列可迭代的对象作为参数，将对象中对应的元素打包成一个个tuple（元组），然后返回由这些tuples组成的list（列表）</li>
 <li>dict()对zip函数返回的列表进行字典转换</li>
 <li>translate():一个字符串的translate()方法接收一个转换表，并用它来转换该字符串。换句话说，它将出现在转换表的键中的字节替换为该键对应的值.这个例子里， 将ABC “翻译为” 1BC.</li>
 <li>eval():Python 通用求值工具</li>
 </ul>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p>import re<br>import itertools</p>
-<p>def solve(puzzle):<br>    words = re.findall(‘[A-Z]+’, puzzle.upper())<br>    unique_characters = set(‘’.join(words))<br>    assert len(unique_characters) &lt;= 10, ‘Too many letters’<br>    first_letters = {word[0] for word in words}<br>    n = len(first_letters)<br>    sorted_characters = ‘’.join(first_letters) + \<br>        ‘’.join(unique_characters - first_letters)<br>    characters = tuple(ord(c) for c in sorted_characters)<br>    digits = tuple(ord(c) for c in ‘0123456789’)<br>    zero = digits[0]<br>    for guess in itertools.permutations(digits, len(characters)):<br>        if zero not in guess[:n]:<br>            equation = puzzle.translate(dict(zip(characters, guess)))<br>            if eval(equation):<br>                return equation</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    import sys<br>    for puzzle in sys.argv[1:]:<br>        print(puzzle)<br>        solution = solve(puzzle)<br>        if solution:<br>            print(solution)</p>
-<p>try runing :  python3 alphametics.py “HAWAII + IDAHO + IOWA + OHIO == STATES”</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><pre><code>import re
+import itertools
+
+def solve(puzzle):
+    words = re.findall(&apos;[A-Z]+&apos;, puzzle.upper())
+    unique_characters = set(&apos;&apos;.join(words))
+    assert len(unique_characters) &lt;= 10, &apos;Too many letters&apos;
+    first_letters = {word[0] for word in words}
+    n = len(first_letters)
+    sorted_characters = &apos;&apos;.join(first_letters) + \
+    &apos;&apos;.join(unique_characters - first_letters)
+    characters = tuple(ord(c) for c in sorted_characters)
+    digits = tuple(ord(c) for c in &apos;0123456789&apos;)
+    zero = digits[0]
+    for guess in itertools.permutations(digits, len(characters)):
+    if zero not in guess[:n]:
+        equation = puzzle.translate(dict(zip(characters, guess)))
+        if eval(equation):
+            return equation
+
+if __name__ == &apos;__main__&apos;:
+    import sys
+    for puzzle in sys.argv[1:]:
+    print(puzzle)
+    solution = solve(puzzle)
+    if solution:
+        print(solution)
+</code></pre><p>try runing :  python3 alphametics.py “HAWAII + IDAHO + IOWA + OHIO == STATES”</p>
 <p><strong>PS: 以后再也不写这样的文档了，别问我为啥、、@ - @</strong> </p>
 
       
@@ -562,7 +592,7 @@ AssertionError: you are silly
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
             <a href="/tags/深入python3/" rel="tag"># 深入python3</a>
           
@@ -596,10 +626,10 @@ AssertionError: you are silly
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/27/解读14行代码实现字母算术/"
-     data-title="解读14行代码实现字母算术"
+        <div class="ds-share flat" data-thread-key="2017/02/27/详细解读14行代码实现字母算术/"
+     data-title="详细解读14行代码实现字母算术"
      data-content=""
-     data-url="www.magicroc.com/2017/02/27/解读14行代码实现字母算术/">
+     data-url="www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -626,8 +656,8 @@ AssertionError: you are silly
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/27/解读14行代码实现字母算术/"
-           data-title="解读14行代码实现字母算术" data-url="www.magicroc.com/2017/02/27/解读14行代码实现字母算术/">
+      <div class="ds-thread" data-thread-key="2017/02/27/详细解读14行代码实现字母算术/"
+           data-title="详细解读14行代码实现字母算术" data-url="www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/">
       </div>
     
   </div>
@@ -746,7 +776,7 @@ AssertionError: you are silly
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用re-findall-找出出现的所有字符"><span class="nav-number">1.</span> <span class="nav-text">使用re.findall()找出出现的所有字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过assert防止出现的字母超过十种"><span class="nav-number">2.</span> <span class="nav-text">通过assert防止出现的字母超过十种</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过集合推导获取每个输入字符的首字母并过滤重复"><span class="nav-number">3.</span> <span class="nav-text">通过集合推导获取每个输入字符的首字母并过滤重复</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对所有出现的字母进行组合-要将每个字符串的首字母放在最前面"><span class="nav-number">4.</span> <span class="nav-text">对所有出现的字母进行组合(要将每个字符串的首字母放在最前面)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取字母和数字对应的ASCII值"><span class="nav-number">5.</span> <span class="nav-text">获取字母和数字对应的ASCII值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对出现的所有数字可能的排列进行迭代"><span class="nav-number">6.</span> <span class="nav-text">对出现的所有数字可能的排列进行迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无数此的转换与匹配检验"><span class="nav-number">7.</span> <span class="nav-text">无数此的转换与匹配检验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">8.</span> <span class="nav-text">源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用re-findall-找出出现的所有字符"><span class="nav-number">1.</span> <span class="nav-text">使用re.findall()找出出现的所有字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用join连接元素使用set过滤重复字符"><span class="nav-number">2.</span> <span class="nav-text">使用join连接元素使用set过滤重复字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过assert防止出现的字母超过十种"><span class="nav-number">3.</span> <span class="nav-text">通过assert防止出现的字母超过十种</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过集合推导获取每个输入字符的首字母并过滤重复"><span class="nav-number">4.</span> <span class="nav-text">通过集合推导获取每个输入字符的首字母并过滤重复</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对所有出现的字母进行组合-要将每个字符串的首字母放在最前面"><span class="nav-number">5.</span> <span class="nav-text">对所有出现的字母进行组合(要将每个字符串的首字母放在最前面)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取字母和数字对应的ASCII值"><span class="nav-number">6.</span> <span class="nav-text">获取字母和数字对应的ASCII值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对出现的所有数字可能的排列进行迭代"><span class="nav-number">7.</span> <span class="nav-text">对出现的所有数字可能的排列进行迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无数此的转换与匹配检验"><span class="nav-number">8.</span> <span class="nav-text">无数此的转换与匹配检验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">9.</span> <span class="nav-text">源码</span></a></li></ol></div>
             
 
           </div>
