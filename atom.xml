@@ -187,13 +187,14 @@ def saveImg(imageURL,fileName):
     <link href="www.magicroc.com/2017/02/27/%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB14%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%AD%97%E6%AF%8D%E7%AE%97%E6%9C%AF/"/>
     <id>www.magicroc.com/2017/02/27/详细解读14行代码实现字母算术/</id>
     <published>2017-02-27T13:23:36.000Z</published>
-    <updated>2017-02-28T13:12:01.218Z</updated>
+    <updated>2017-03-13T13:42:42.649Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong>HAWAII + IDAHO + IOWA + OHIO == STATES<br>510199 + 98153 + 9301 + 3593 == 621246<br>What is this ？
 </strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="3.png" alt="配图"></p>
 <p><strong>HAWAII + IDAHO + IOWA + OHIO == STATES<br>510199 + 98153 + 9301 + 3593 == 621246<br>H = 5<br>A = 1<br>W = 0<br>I = 9<br>D = 8<br>O = 3<br>S = 6<br>T = 2<br>E = 4</strong></p>
 <p>像这样的谜题被称为cryptarithms 或者 字母算术(alphametics)。字母可以拼出实际的单词，而如果你把每一个字母都用0–9中的某一个数字代替后, 也同样可以拼出 一个算术等式。关键的地方是找出每个字母都映射到了哪个数字。每个字母所有出现的地方都必须映射到同一个数字，数字不能重复, 并且“单词”不能以0开始。</p>
 <p><strong> 这是&lt;&lt;深入Python3&gt;&gt;上对高级迭代器讲解的例子，仅仅14行代码但有很多知识</strong></p>
@@ -373,12 +374,13 @@ if __name__ == &apos;__main__&apos;:
     <link href="www.magicroc.com/2017/02/05/%E5%88%A9%E7%94%A8github%E5%88%86%E6%94%AF%E5%A4%9A%E7%94%B5%E8%84%91%E7%BB%B4%E6%8A%A4hexo/"/>
     <id>www.magicroc.com/2017/02/05/利用github分支多电脑维护hexo/</id>
     <published>2017-02-04T16:26:59.000Z</published>
-    <updated>2017-02-27T13:23:25.261Z</updated>
+    <updated>2017-03-13T13:51:32.463Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong>hexo真心很好用，但是如果更换系统或者更换电脑后应该怎么继续维护这个博客呢，我使用了github pages，可以利用github的分支功能解决这个问题，一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。</strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="1.png" alt="配图"></p>
 <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><pre><code>现在已经在一台电脑上搭建好hexo，并且已经部署到github pages，可以成功的发布博客
 </code></pre><h1 id="新建分支提交原始文件"><a href="#新建分支提交原始文件" class="headerlink" title="新建分支提交原始文件"></a>新建分支提交原始文件</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>在本地博客根目录输入<strong>git init</strong>，为整个hexo目录初始化git环境</p>
 <h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><p>将本地与github上的仓库建立关联</p>
@@ -452,12 +454,13 @@ git push origin hexo
     <link href="www.magicroc.com/2017/02/03/Python%E5%9B%BE%E7%89%87%E8%BD%AC%E5%AD%97%E7%AC%A6%E7%94%BB/"/>
     <id>www.magicroc.com/2017/02/03/Python图片转字符画/</id>
     <published>2017-02-03T05:16:09.000Z</published>
-    <updated>2017-02-27T13:23:25.261Z</updated>
+    <updated>2017-03-13T13:41:50.845Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong>在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得</strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="3.png" alt="配图"></p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>一张彩色的照片有很多颜色，每种颜色都有对应的RGB值。我们可以这样处理一张图片，将照片深色的部分使用繁琐的字符填充，而浅色的部分使用简单的字符填充，例如” $ “ 和 “ . “两种字符填充可以组成强烈的对比。判断深色部分或者浅色部分使用灰度值</p>
 <blockquote>
 <p>灰度值：指黑白图像中点的颜色深度，范围一般从0到255，白色为255，黑色为0，故黑白图片也称灰度图像</p>
@@ -579,12 +582,13 @@ if __name__ == &apos;__main__&apos;:
     <link href="www.magicroc.com/2017/01/22/Flask-admin%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/"/>
     <id>www.magicroc.com/2017/01/22/Flask-admin使用经验技巧总结/</id>
     <published>2017-01-22T11:06:24.000Z</published>
-    <updated>2017-02-27T13:23:25.261Z</updated>
+    <updated>2017-03-13T13:58:39.757Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong>前段时间自学了Flask框架，看得狗书入门，最近做一个新闻发布网站准备拿Flask来做，尝试一下Flask快速开发，并且练练手，于是接触到了Flask-admin。<br>总结一下Flask-admin</strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="3.png" alt="配图"></p>
 <h1 id="首先需要导入的包"><a href="#首先需要导入的包" class="headerlink" title="首先需要导入的包"></a>首先需要导入的包</h1><pre><code>from flask_admin import Admin,BaseView,expose,AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 </code></pre><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="1.png" alt="效果图"></p>

@@ -92,14 +92,15 @@
 <meta property="og:url" content="www.magicroc.com/2017/02/03/Python图片转字符画/index.html">
 <meta property="og:site_name" content="MagicRoc">
 <meta property="og:description" content="在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得">
+<meta property="og:image" content="www.magicroc.com/3.png">
 <meta property="og:image" content="www.magicroc.com/1.png">
 <meta property="og:image" content="www.magicroc.com/0.jpg">
 <meta property="og:image" content="www.magicroc.com/2.png">
-<meta property="og:updated_time" content="2017-02-27T13:23:25.261Z">
+<meta property="og:updated_time" content="2017-03-13T13:41:50.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python图片转字符画">
 <meta name="twitter:description" content="在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得">
-<meta name="twitter:image" content="www.magicroc.com/1.png">
+<meta name="twitter:image" content="www.magicroc.com/3.png">
 
 
 
@@ -408,6 +409,7 @@
 <p><strong>在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得</strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="3.png" alt="配图"></p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>一张彩色的照片有很多颜色，每种颜色都有对应的RGB值。我们可以这样处理一张图片，将照片深色的部分使用繁琐的字符填充，而浅色的部分使用简单的字符填充，例如” $ “ 和 “ . “两种字符填充可以组成强烈的对比。判断深色部分或者浅色部分使用灰度值</p>
 <blockquote>
 <p>灰度值：指黑白图像中点的颜色深度，范围一般从0到255，白色为255，黑色为0，故黑白图片也称灰度图像</p>
