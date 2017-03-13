@@ -10,6 +10,8 @@ categories: 技术研究
 
 <!--more-->
 
+![配图](3.png)
+
 # 首先需要导入的包
 	from flask_admin import Admin,BaseView,expose,AdminIndexView
 	from flask_admin.contrib.sqla import ModelView

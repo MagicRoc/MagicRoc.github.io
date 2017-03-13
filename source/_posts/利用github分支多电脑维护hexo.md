@@ -9,6 +9,8 @@ categories: 手段方法
 
 <!--more-->
 
+![配图](1.png)
+
 # 前提
 	现在已经在一台电脑上搭建好hexo，并且已经部署到github pages，可以成功的发布博客
 
