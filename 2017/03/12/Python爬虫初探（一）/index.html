@@ -92,13 +92,14 @@
 <meta property="og:url" content="www.magicroc.com/2017/03/12/Python爬虫初探（一）/index.html">
 <meta property="og:site_name" content="MagicRoc">
 <meta property="og:description" content="最近参与了的一个项目，因为项目需要驾照考试科一和科四的完整题库，网上找了好久找不到完整版题库，所以才有了这篇博客的由来，因为技术不太好，之前学习的又是Python web相关的知识，所以关于程序的代码可能有些繁琐、低效。见谅">
+<meta property="og:image" content="www.magicroc.com/3.jpg">
 <meta property="og:image" content="www.magicroc.com/1.png">
 <meta property="og:image" content="www.magicroc.com/2.png">
-<meta property="og:updated_time" content="2017-03-13T01:43:15.992Z">
+<meta property="og:updated_time" content="2017-03-13T13:27:56.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫初探（一）">
 <meta name="twitter:description" content="最近参与了的一个项目，因为项目需要驾照考试科一和科四的完整题库，网上找了好久找不到完整版题库，所以才有了这篇博客的由来，因为技术不太好，之前学习的又是Python web相关的知识，所以关于程序的代码可能有些繁琐、低效。见谅">
-<meta name="twitter:image" content="www.magicroc.com/1.png">
+<meta name="twitter:image" content="www.magicroc.com/3.jpg">
 
 
 
@@ -352,8 +353,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术研究/" itemprop="url" rel="index">
-                    <span itemprop="name">技术研究</span>
+                  <a href="/categories/基础学习/" itemprop="url" rel="index">
+                    <span itemprop="name">基础学习</span>
                   </a>
                 </span>
 
@@ -407,6 +408,7 @@
 <p><strong> 最近参与了的一个项目，因为项目需要驾照考试科一和科四的完整题库，网上找了好久找不到完整版题库，所以才有了这篇博客的由来，因为技术不太好，之前学习的又是Python web相关的知识，所以关于程序的代码可能有些繁琐、低效。见谅</strong></p>
 </blockquote>
 <a id="more"></a>
+<p><img src="3.jpg" alt="配图"></p>
 <h1 id="分析得到标题、选项和答案"><a href="#分析得到标题、选项和答案" class="headerlink" title="分析得到标题、选项和答案"></a>分析得到标题、选项和答案</h1><p>首先看一下要爬取的网页源码内容，科目一共有四章，第一章有30页，每页二十道题，这是第一章第一页的第一题</p>
 <pre><code>&lt;a href=&quot;/tiba/9294/&quot; target=&quot;_blank&quot;&gt;
               &lt;div class=&quot;ui-test clearfix titem&quot;&gt;
@@ -554,6 +556,10 @@ def saveImg(imageURL,fileName):
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/03/13/Python爬虫初探（二）/" rel="prev" title="Python爬虫初探（二）">
+                Python爬虫初探（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -643,7 +649,7 @@ def saveImg(imageURL,fileName):
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -651,7 +657,7 @@ def saveImg(imageURL,fileName):
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
