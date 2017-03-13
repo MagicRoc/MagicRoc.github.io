@@ -65,6 +65,9 @@
               <i class="fa fa-rss"></i>
               RSS
             </a>
+
+				{% include 'high.swig' %}
+
           </div>
         {% endif %}
 
