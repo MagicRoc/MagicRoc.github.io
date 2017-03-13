@@ -138,8 +138,10 @@ social:
   #LinkLabel: Link
   GitHub: https://github.com/MagicRoc
   Twitter: https://twitter.com/MagicRoc
-
-
+  豆瓣: http://douban.com/people/your-user-name
+  知乎: http://www.zhihu.com/people/your-user-name
+  微博: http://weibo.com/your-user-name
+  简书: http://www.jianshu.com/
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -152,10 +154,9 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
-  知乎: zhihu
-  微博: weibo
-  豆瓣: douban
-  简书: jianshu
+  Zhihu: zhihu
+  Douban: douban
+  Jianshu: jianshu
 
 
 # Sidebar Avatar
@@ -343,9 +344,9 @@ facebook_comments_plugin:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: Sf6O4jD7LN55j2kYbimYbb5U-gzGzoHsz
+  app_key: Tis1wc6dIkG4fRXwAqlwBKlm
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
