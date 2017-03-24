@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.magicroc.com/"/>
-  <updated>2017-03-13T13:22:21.991Z</updated>
+  <updated>2017-03-24T07:29:22.358Z</updated>
   <id>www.magicroc.com/</id>
   
   <author>
@@ -14,6 +14,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Everymail自动邮件的设计与实现</title>
+    <link href="www.magicroc.com/2017/03/24/Everymail%E8%87%AA%E5%8A%A8%E9%82%AE%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    <id>www.magicroc.com/2017/03/24/Everymail自动邮件的设计与实现/</id>
+    <published>2017-03-24T06:26:52.000Z</published>
+    <updated>2017-03-24T07:29:22.358Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong> 很简单的一个python写的程序，每天早晨六点自动发送邮件到指定邮箱，邮件内容包括当地天气、笑话、英语单词。天气和笑话通过调用API，英语单词通过文件读取</strong></p>
+</blockquote>
+<a id="more"></a>
+<p><img src="1.png" alt="配图"></p>
+<h1 id="首先实现邮件发送"><a href="#首先实现邮件发送" class="headerlink" title="首先实现邮件发送"></a>首先实现邮件发送</h1><p>通过email 和 smtplib实现,需要导入的库</p>
+<pre><code>from email import encoders
+from email.header import Header
+from email.mime.text import MIMEText
+from email.utils import parseaddr, formatadd
+import smtplib
+</code></pre><p>设置邮箱表标题，发件人，收件人，以及邮箱内容</p>
+<pre><code>msg = MIMEText(location+temp+weather+weatime+jokeall+jokeword, &apos;plain&apos;,&apos;utf-8&apos;)
+msg[&apos;From&apos;] = _format_addr(&apos;Everymail &lt;%s&gt;&apos; % from_addr)
+msg[&apos;To&apos;] = _format_addr(&apos;管理员 &lt;%s&gt;&apos; % to_addr)
+msg[&apos;Subject&apos;] = Header(&apos;The New day&apos;, &apos;utf-8&apos;).encode()
+</code></pre><p>生成实例，登录发送</p>
+<pre><code>server = smtplib.SMTP(smtp_server, 25)
+server.set_debuglevel(1)
+server.login(from_addr, password)
+server.sendmail(from_addr, [to_addr], msg.as_string())
+server.quit()
+</code></pre><p>接下的只要任务是获取MIMEText中的那些参数<br><strong>location ：当地位置<br>temp：当地温度<br>weather：当地天气<br>weatime：天气更新时间<br>jokeword：十个单词<br>jokeall：一个笑话</strong></p>
+<h1 id="天气的获取"><a href="#天气的获取" class="headerlink" title="天气的获取"></a>天气的获取</h1><p>程序调用的是心知天气的API</p>
+<pre><code>def fetchWeather():
+
+    location = getLocation()
+    result = requests.get(API, params={
+    &apos;key&apos;: KEY,
+    &apos;location&apos;: location,
+    &apos;language&apos;: LANGUAGE,
+    &apos;unit&apos;: UNIT
+    }, timeout=100)
+    values = json.loads(result.text)
+    results = values[&quot;results&quot;][0]
+    wea = results[&quot;now&quot;]
+    time = re.sub(r&apos;([\d|-]+)T([\d|:]+).+&apos;, r&apos;\1 \2&apos;, results[&quot;last_update&quot;])
+    return wea,time
+</code></pre><p>通过json.loads将返回的json数据解析，然后一层一层的取出，天气，温度，和时间。因为返回的时间格式一点不适合查看，故用正则将其转化为常见的时间格式</p>
+<h1 id="笑话的获取"><a href="#笑话的获取" class="headerlink" title="笑话的获取"></a>笑话的获取</h1><p>程序调用的是来福岛的笑话接口</p>
+<pre><code>def fetchjoke():
+    showapi_appid = id  #替换此值
+    showapi_sign = key  #替换此值
+    url=&quot;http://route.showapi.com/341-1&quot;
+    send_data = parse.urlencode([
+    (&apos;showapi_appid&apos;, showapi_appid)
+    ,(&apos;showapi_sign&apos;, showapi_sign)
+                ,(&apos;time&apos;, &quot;&quot;)
+                ,(&apos;page&apos;, &quot;&quot;)
+                ,(&apos;maxResult&apos;, &quot;&quot;)
+
+  ])
+    req = request.Request(url)
+    with request.urlopen(req, data=send_data.encode(&apos;utf-8&apos;)) as f:
+    str_res= f.read().decode(&apos;utf-8&apos;)
+    json_res=json.loads(str_res)
+    a = 1
+    joketitle = []
+    jokecontext = []
+    jokeall = &quot;&quot;
+    for i in json_res[&apos;showapi_res_body&apos;].get(&quot;contentlist&quot;):
+        joketitle.append(i[&quot;title&quot;])
+        jokecontext.append(i[&quot;text&quot;])
+        jokeall = jokeall + &apos;标题 : &apos; + i[&quot;title&quot;] + &apos;\n&apos;
+        jokeall = jokeall + &apos;内容 : \n&apos; + i[&quot;text&quot;] + &apos;\n\n&apos;
+        a+=1
+        break
+    return(jokeall)
+</code></pre><p>也是通过json.loads解析返回的json数据，然后取出所需要的数据，作为函数返回数据</p>
+<h1 id="单词的获取"><a href="#单词的获取" class="headerlink" title="单词的获取"></a>单词的获取</h1><p>单词是从一个txt文件按顺序读取的，之前把四级单词全部复制进去。但是有时候程序可能crash，重新启动程序的时候可能又要从第一个单词开始读取了，所以又多了一个文件用来记录每次读取的位置</p>
+<pre><code>def fetchword():
+    theword = &quot;&quot;
+    with open(&apos;value.txt&apos;,&quot;r&quot;) as f1,open(&apos;recoad.txt&apos;,&quot;r&quot;) as f2:
+    flag = f2.read()
+    count = 1
+    for i in f1:
+        count+=1
+        if (count &gt;= int(flag)):
+            theword = theword + str(i) + &quot;\n&quot;;
+            if(count == int(flag)+10):
+                break
+    with open(&quot;recoad.txt&quot;,&quot;w&quot;) as f:
+    f.write(str(int(flag)+10))
+    return theword
+</code></pre><h1 id="定时发送"><a href="#定时发送" class="headerlink" title="定时发送"></a>定时发送</h1><pre><code>import threading
+import time
+from sendmail import send
+def outosend():
+    send()
+    global t    #Notice: use global variable!
+    t = threading.Timer(86400.0, outosend)    # 定时器
+    t.start()
+t = threading.Timer(5.0, outosend)
+while 1:
+    if time.localtime()[3] == 6:  # 判断现在是不是早晨六点
+    t.start()   
+    break     # 线程不能重复开始，不然会有警告
+</code></pre><p>通过Timer定时器实现每86400秒（一天）发送一次，通过递归实现程序一直运行此函数。<br>但是为了保证在六点发送，然后下一次发送也是六点，所有通过time.localtime判断现在的时间是不是到六点，一旦正确，线程开始启动</p>
+<h2 id="同时发送多个邮箱"><a href="#同时发送多个邮箱" class="headerlink" title="同时发送多个邮箱"></a>同时发送多个邮箱</h2><p>为了保证同时发送多个邮箱，所以把要发送的邮箱写入了文件，然后通过文件一个一个的读取</p>
+<pre><code>with open(&quot;emails.txt&quot;,&quot;r&quot;) as f:
+    emails = f.readlines()
+
+
+    for to_addr in emails:
+    msg[&apos;To&apos;] = _format_addr(&apos;管理员 &lt;%s&gt;&apos; % to_addr)
+</code></pre><p><img src="3.png" alt=" 结果图"> <img src="4.png" alt=" 结果图"> </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt; 很简单的一个python写的程序，每天早晨六点自动发送邮件到指定邮箱，邮件内容包括当地天气、笑话、英语单词。天气和笑话通过调用API，英语单词通过文件读取&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="实践经验" scheme="www.magicroc.com/categories/%E5%AE%9E%E8%B7%B5%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+      <category term="Python" scheme="www.magicroc.com/tags/Python/"/>
+    
+      <category term="SMTP" scheme="www.magicroc.com/tags/SMTP/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬虫初探（二）</title>
