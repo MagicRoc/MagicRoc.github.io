@@ -282,15 +282,18 @@ mathjax:
 # Hypercomments
 #hypercomments_id:
 
+
+gentie_productKey: true
+
 # Baidu Share
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-#baidushare:
+# baidushare: true
 ##  type: button
 
 # Share
-#jiathis:
+jiathis: true
 # Warning: JiaThis does not support https.
 #add_this_id:
 
@@ -315,11 +318,11 @@ mathjax:
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: true
-  user_id: 141682655
-  admin_nickname: MagicRoc
+# duoshuo_info:
+#  ua_enable: true
+#  admin_enable: false
+#  user_id: 141682655
+#  admin_nickname: MagicRoc
 
 
 # Facebook SDK Support.
@@ -400,6 +403,8 @@ algolia_search:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}"
     hits_stats: "${hits} results found in ${time} ms"
+
+
 
 
 
