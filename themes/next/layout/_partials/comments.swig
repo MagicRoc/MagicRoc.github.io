@@ -1,4 +1,5 @@
-  <div class="comments" id="comments">
+{% if page.comments %}  
+<div class="comments" id="comments">
 
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
@@ -12,3 +13,4 @@
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 </div>
+{% endif %}
