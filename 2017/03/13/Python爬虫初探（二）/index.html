@@ -509,15 +509,16 @@
     </div>
   </div>
 
-<div id="hot-news-wrap"></div>
-<script>var yunModuleEnv = true;</script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
-  var yunTieProductKey = "5eb88bc5cffb46c09d333e8d76613471";  
-  var yunHotNewsWrap = "hot-news-wrap";   //放置的DOM节点ID 或 样式类
-  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vZXh0ZW5kL2hvdF9uZXdzX3NjcmlwdC5odG1s", true);
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "5eb88bc5cffb46c09d333e8d76613471",
+    target: "cloud-tie-wrapper"
+  };
 </script>
-
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 
           </div>
           
