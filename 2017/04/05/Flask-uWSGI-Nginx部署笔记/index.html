@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python,PIL," />
+  <meta name="keywords" content="Flask,Python,uWSGI,Nginx," />
 
 
 
@@ -86,21 +86,19 @@
 
 
 
-<meta name="description" content="在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得">
+<meta name="description" content="其实简单部署Flask程序很简单，只要掌握了流程和每一层的作用。本来应该再加上Supervisor，不过我还没有尝试，先总结下来uWSGI和Nginx以及遇到的一些小问题以及解决办法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python图片转字符画">
-<meta property="og:url" content="www.magicroc.com/2017/02/03/Python图片转字符画/index.html">
+<meta property="og:title" content="Flask+uWSGI+Nginx部署笔记">
+<meta property="og:url" content="www.magicroc.com/2017/04/05/Flask-uWSGI-Nginx部署笔记/index.html">
 <meta property="og:site_name" content="MagicRoc">
-<meta property="og:description" content="在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得">
-<meta property="og:image" content="www.magicroc.com/3.png">
+<meta property="og:description" content="其实简单部署Flask程序很简单，只要掌握了流程和每一层的作用。本来应该再加上Supervisor，不过我还没有尝试，先总结下来uWSGI和Nginx以及遇到的一些小问题以及解决办法">
+<meta property="og:image" content="www.magicroc.com/4.jpg">
 <meta property="og:image" content="www.magicroc.com/1.png">
-<meta property="og:image" content="www.magicroc.com/0.jpg">
-<meta property="og:image" content="www.magicroc.com/2.png">
-<meta property="og:updated_time" content="2017-03-13T13:41:50.845Z">
+<meta property="og:updated_time" content="2017-04-05T12:36:23.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python图片转字符画">
-<meta name="twitter:description" content="在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得">
-<meta name="twitter:image" content="www.magicroc.com/3.png">
+<meta name="twitter:title" content="Flask+uWSGI+Nginx部署笔记">
+<meta name="twitter:description" content="其实简单部署Flask程序很简单，只要掌握了流程和每一层的作用。本来应该再加上Supervisor，不过我还没有尝试，先总结下来uWSGI和Nginx以及遇到的一些小问题以及解决办法">
+<meta name="twitter:image" content="www.magicroc.com/4.jpg">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="www.magicroc.com/2017/02/03/Python图片转字符画/"/>
+  <link rel="canonical" href="www.magicroc.com/2017/04/05/Flask-uWSGI-Nginx部署笔记/"/>
 
 
 
 
 
-  <title> Python图片转字符画 | MagicRoc </title>
+  <title> Flask+uWSGI+Nginx部署笔记 | MagicRoc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -298,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="www.magicroc.com/2017/02/03/Python图片转字符画/">
+  <link itemprop="mainEntityOfPage" href="www.magicroc.com/2017/04/05/Flask-uWSGI-Nginx部署笔记/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="MagicRoc">
@@ -322,7 +320,7 @@
             
             
               
-                Python图片转字符画
+                Flask+uWSGI+Nginx部署笔记
               
             
           </h1>
@@ -335,8 +333,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-03T13:16:09+08:00">
-                2017-02-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T19:19:53+08:00">
+                2017-04-05
               </time>
             
 
@@ -354,8 +352,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术研究/" itemprop="url" rel="index">
-                    <span itemprop="name">技术研究</span>
+                  <a href="/categories/实践经验/" itemprop="url" rel="index">
+                    <span itemprop="name">实践经验</span>
                   </a>
                 </span>
 
@@ -373,7 +371,7 @@
 
           
           
-             <span id="/2017/02/03/Python图片转字符画/" class="leancloud_visitors" data-flag-title="Python图片转字符画">
+             <span id="/2017/04/05/Flask-uWSGI-Nginx部署笔记/" class="leancloud_visitors" data-flag-title="Flask+uWSGI+Nginx部署笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,107 +397,86 @@
 
       
         <blockquote>
-<p><strong>在网上偶然发现一篇使用python实现图片转字符画的文章，觉得很有创意，图片的处理使用PIL。于是尝试了一下，本篇博客主要是参考原文，百度谷歌后解决在实践中遇到的问题，和一些已经解答的疑惑。在此记录所得</strong></p>
+<p><strong>其实简单部署Flask程序很简单，只要掌握了流程和每一层的作用。本来应该再加上Supervisor，不过我还没有尝试，先总结下来uWSGI和Nginx以及遇到的一些小问题以及解决办法</strong></p>
 </blockquote>
 <a id="more"></a>
-<p><img src="3.png" alt="配图"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>一张彩色的照片有很多颜色，每种颜色都有对应的RGB值。我们可以这样处理一张图片，将照片深色的部分使用繁琐的字符填充，而浅色的部分使用简单的字符填充，例如” $ “ 和 “ . “两种字符填充可以组成强烈的对比。判断深色部分或者浅色部分使用灰度值</p>
+<p><img src="4.jpg" alt="配图"></p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p> <strong>本地环境：Ubuntu16.04<br> 服务器：Centos7.0<br> Python: 2.7.5</strong></p>
+<h1 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h1><pre><code>sudo apt-get install openssh-server
+</code></pre><h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><pre><code>sudo vi /etc/ssh/sshd_config
+</code></pre><p>禁用：PermitRootLogin prohibit-password<br>添加：PermitRootLogin yes</p>
+<p><strong>重启</strong></p>
+<pre><code>sudo service ssh restart
+</code></pre><h2 id="ssh使用"><a href="#ssh使用" class="headerlink" title="ssh使用"></a>ssh使用</h2><pre><code>ssh root@远程服务器IP
+</code></pre><h2 id="scp使用"><a href="#scp使用" class="headerlink" title="scp使用"></a>scp使用</h2><p><strong>scp: 跨机远程拷贝</strong></p>
+<h3 id="从本地到远程服务器"><a href="#从本地到远程服务器" class="headerlink" title="从本地到远程服务器"></a>从本地到远程服务器</h3><pre><code>scp 本地文件 远程服务器用户名@远程服务器IP:远程服务器目录
+</code></pre><h3 id="从远程服务器下载到本地"><a href="#从远程服务器下载到本地" class="headerlink" title="从远程服务器下载到本地"></a>从远程服务器下载到本地</h3><pre><code>scp 远程服务器用户名@远程服务器IP:远程服务器文件 本地目录
+</code></pre><p><strong>如果是目录则在scp后加-r参数即可</strong></p>
+<h1 id="配置Flask"><a href="#配置Flask" class="headerlink" title="配置Flask"></a>配置Flask</h1><h2 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h2><pre><code>sudo yum –y install epel-release
+sudo yum –y install python-pip
+</code></pre><h2 id="安装virtualenv"><a href="#安装virtualenv" class="headerlink" title="安装virtualenv"></a>安装virtualenv</h2><pre><code>pip install virtualenv
+</code></pre><p>在应用程序目录创建虚拟环境 virtualenv venv<br>激活虚拟环境: source /venv/bin/activate</p>
+<h2 id="安装flask应用程序依赖包"><a href="#安装flask应用程序依赖包" class="headerlink" title="安装flask应用程序依赖包"></a>安装flask应用程序依赖包</h2><p>因为pip安装时速度太慢，所以决定更改为pip国内源<br>对指定包对安装临时使用豆瓣源</p>
+<pre><code>pip install flask_sqlalchemy –i http://pypi.douban.com/simple
+</code></pre><p>永久更新源办法  修改配置文件<br>在主目录下创建.pip文件夹</p>
+<pre><code>mkdir ~/.pip
+</code></pre><p>　　　　<br>然后在该目录下创建pip.conf文件</p>
+<pre><code>vim pip.conf
+</code></pre><p>写入以下内容<br>　　　<br>    [global]<br>    trusted-host = pypi.douban.com<br>    index-url = <a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a></p>
+<h1 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h1><pre><code>sudo yum install nginx
+</code></pre><h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><pre><code>vim etc/nginx/nginx.conf
+</code></pre><p>修改如下</p>
+<pre><code>server {
+ 　　　　 listen  80;
+  　　　　server_name XXX.XXX.XXX; #公网地址
+
+　　　　  location / {
+　　　　include      uwsgi_params;
+　　　　uwsgi_pass   127.0.0.1:8001;  # 指向uwsgi 所应用的内部地址,所有请求将转发给uwsgi 处理
+　　　　uwsgi_param UWSGI_PYHOME /root/School/venv; # 指向虚拟环境目录
+　　　　uwsgi_param UWSGI_CHDIR  /root/School; # 指向网站根目录
+　　　　uwsgi_param UWSGI_SCRIPT manage:app; # 指定启动程序
+ 　　　　 }
+}
+</code></pre><h2 id="Nginx简单指令"><a href="#Nginx简单指令" class="headerlink" title="Nginx简单指令"></a>Nginx简单指令</h2><p> 启动nginx：<br> 命令行输入nginx或者nginx -c nginx配置文件</p>
+<p>关闭nginx：<br>ps -ef|grep nginx查看nginx 线程ID<br>kill -QUIT 线程ID</p>
+<p><strong>Nginx出现413 Request Entity Too Large错误解决方法</strong><br>打开nginx主配置文件nginx.conf,找到http{}段，修改或者添加</p>
+<pre><code>client_max_body_size 4m;
+</code></pre><h1 id="安装uWSGI"><a href="#安装uWSGI" class="headerlink" title="安装uWSGI"></a>安装uWSGI</h1><p>需安装三个库:</p>
+<pre><code>1.sudo yum install libxml2
+2.sudo yum install gcc
+3.sudo yum install python-devel
+</code></pre><p>然后:</p>
+<pre><code>pip  install uwsgi 
+</code></pre><h2 id="配置uWSGI"><a href="#配置uWSGI" class="headerlink" title="配置uWSGI"></a>配置uWSGI</h2><p>进入flask应用程序目录 </p>
+<pre><code>vim config.ini
+</code></pre><p>编辑:</p>
+<pre><code>[uwsgi]
+# uwsgi 启动时所使用的地址与端口
+socket = 127.0.0.1:8001 
+# 指向网站目录
+chdir = /root/School 
+# python 启动程序文件
+wsgi-file = manage.py 
+# python 程序内用以启动的 application 变量名
+callable = app 
+# 处理器数
+processes = 4
+# 线程数
+threads = 2
+#状态检测地址
+stats = 127.0.0.1:9191
+</code></pre><h2 id="uWSGI命令"><a href="#uWSGI命令" class="headerlink" title="uWSGI命令"></a>uWSGI命令</h2><p>uwsgi 启动 ：虚拟环境下uwsgi config.ini<br>uwsgi 关闭：虚拟环境下killall -9 uwsgi</p>
+<h1 id="部署说明"><a href="#部署说明" class="headerlink" title="部署说明"></a>部署说明</h1><p><img src="1.png" alt="部署图"></p>
+<ul>
+<li>uWSGI 提高并发访问支持，提高服务运行稳定性</li>
+<li>Nginx在这里最基本的一个用处就是转发：当客户访问一个域名或者IP时 Nginx就将访问转发给uwsgi处理</li>
+<li>Supervisor可以同时启动多个应用，更重要的是，当某个应用Crash的时候，它可以自动重启该应用，保证可用性</li>
+</ul>
+<p>这样uwsgi可以让supervisor帮助启动，而且当uwsgi Crash时会尝试帮重启它，保证uwsgi和网站的可用性</p>
 <blockquote>
-<p>灰度值：指黑白图像中点的颜色深度，范围一般从0到255，白色为255，黑色为0，故黑白图片也称灰度图像</p>
+<p><strong>如何理解Nginx, WSGI, Flask之间的关系 ? 这是一篇很好的文章<br> <a href="http://blog.csdn.net/lihao21/article/details/52304119" target="_blank" rel="external">http://blog.csdn.net/lihao21/article/details/52304119</a></strong></p>
 </blockquote>
-<p>使用灰度值公式将像素的 RGB 值映射到灰度值:</p>
-<pre><code>gray ＝ 0.2126 * r + 0.7152 * g + 0.0722 * b
-</code></pre><p>这样就可以判断出照片中深色浅色的部位了，因为我们能使用的字符有限，没有办法一个灰度值使用一个字符替代，所以使用一种字符替换三个相近灰度值的部分，我们可以使用”$”字符替代灰度值为0、1、2黑色的部分，用”.”字符替代灰度值为251、252、253的部分，而254、255这样白色的使用空字符 “ “</p>
-<h1 id="安装pillow-PIL-库"><a href="#安装pillow-PIL-库" class="headerlink" title="安装pillow(PIL)库:"></a>安装pillow(PIL)库:</h1><pre><code>$ sudo apt-get update
-$ sudo apt-get install python-dev
-$ sudo apt-get install libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
-$ sudo pip install pillow
-</code></pre><h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><h2 id="导入的库"><a href="#导入的库" class="headerlink" title="导入的库"></a>导入的库</h2><pre><code>from PIL import Image
-import argparse
-
-parser = argparse.ArgumentParser()
-
-parser.add_argument(&apos;file&apos;)     #输入文件
-parser.add_argument(&apos;-o&apos;, &apos;--output&apos;)   #输出文件
-parser.add_argument(&apos;--width&apos;, type = int, default = 80) #输出字符画宽
-parser.add_argument(&apos;--height&apos;, type = int, default = 80) #输出字符画高
-</code></pre><p>图片的处理使用PIL库中的image<br>argpase 是解析命令行参数和选择的模块，如需了解，百度谷歌</p>
-<h2 id="用于替换图片的字符列表："><a href="#用于替换图片的字符列表：" class="headerlink" title="用于替换图片的字符列表："></a>用于替换图片的字符列表：</h2><pre><code>ascii_char = list(&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;. &quot;)
-</code></pre><h2 id="RGB值转换字符的函数"><a href="#RGB值转换字符的函数" class="headerlink" title="RGB值转换字符的函数"></a>RGB值转换字符的函数</h2><pre><code>def get_char(r,g,b,alpha = 256):
-    if alpha == 0:
-    return &apos; &apos;
-    length = len(ascii_char)
-    gray = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
-
-    unit = (256.0 + 1)/length
-    return ascii_char[int(gray/unit)]
-</code></pre><p>注意几个灰度值共用一个字符</p>
-<h2 id="使用Image处理图片"><a href="#使用Image处理图片" class="headerlink" title="使用Image处理图片"></a>使用Image处理图片</h2><pre><code>im = Image.open(IMG)
-im = im.resize((WIDTH,HEIGHT), Image.NEAREST)
-</code></pre><p>image.open(),打开相应的照片，并返回一对象<br>resize()函数处理图片的缩放，WIDTH，HEIGHT则是缩放后的宽高，NEAREST则是缩放的质量，此处是最低质量<br><strong>（ PIL.Image.NEAREST：最低质量， PIL.Image.BILINEAR：双线性，<br>PIL.Image.BICUBIC：三次样条插值，Image.ANTIALIAS：最高质量）</strong></p>
-<h2 id="生成表示字符画的字符串"><a href="#生成表示字符画的字符串" class="headerlink" title="生成表示字符画的字符串"></a>生成表示字符画的字符串</h2><pre><code>for i in range(HEIGHT):
-    for j in range(WIDTH):
-        txt += get_char(*im.getpixel((j,i)))
-    txt += &apos;\n&apos;
-</code></pre><p><strong>im.getpixel(xy) 返回给定位置的像素值。返回一个含有r,g,b三个值的元组<br>注意元组前面加*号传入Python函数时，元组中的元素被解开作为独立的参数依次传给python函数</strong></p>
-<h1 id="完整参考代码"><a href="#完整参考代码" class="headerlink" title="完整参考代码"></a>完整参考代码</h1><pre><code> from PIL import Image
-import argparse
-
-
-parser = argparse.ArgumentParser() #命令行输入参数处理
-
-parser.add_argument(&apos;file&apos;)     #输入文件
-parser.add_argument(&apos;-o&apos;, &apos;--output&apos;)   #输出文件
-parser.add_argument(&apos;--width&apos;, type = int, default = 80) #输出字符画宽
-parser.add_argument(&apos;--height&apos;, type = int, default = 80) #输出字符画高
-
-
-args = parser.parse_args() #获取参数
-
-IMG = args.file
-WIDTH = args.width
-HEIGHT = args.height
-OUTPUT = args.output
-
-ascii_char = list(&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;. &quot;)
-
-
-def get_char(r,g,b,alpha = 256): # 将256灰度映射到70个字符上
-    if alpha == 0:
-    return &apos; &apos;
-    length = len(ascii_char)
-    gray = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
-
-    unit = (256.0 + 1)/length
-    return ascii_char[int(gray/unit)]
-
-if __name__ == &apos;__main__&apos;:
-
-    im = Image.open(IMG)
-    im = im.resize((WIDTH,HEIGHT), Image.NEAREST)
-
-    txt = &quot;&quot;
-
-    for i in range(HEIGHT):
-    for j in range(WIDTH):
-        txt += get_char(*im.getpixel((j,i)))
-    txt += &apos;\n&apos;
-
-    print txt
-
-
-    if OUTPUT:     #字符画输出到文件
-    with open(OUTPUT,&apos;w&apos;) as f:
-        f.write(txt)
-    else:
-    with open(&quot;output.txt&quot;,&apos;w&apos;) as f:
-        f.write(txt)
-</code></pre><h1 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h1><p>默认输出文件名output.txt，图片默认高宽80</p>
-<pre><code>python image_ascii.py image.jpg
-</code></pre><p>也可以这样制定输出文件名和高宽</p>
-<pre><code>python image_ascii.py image.jpg -o put.txt --width 40 --height 40
-</code></pre><h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><pre><code>自己的照片对应的字符画
-</code></pre><p><img src="1.png" alt="效果图"><br>    网上找的卡通照片原图以及对应的字符画<br><img src="0.jpg" alt="效果图">  <img src="2.png" alt="效果图">    </p>
 
       
     </div>
@@ -544,9 +521,13 @@ if __name__ == &apos;__main__&apos;:
       
         <div class="post-tags">
           
+            <a href="/tags/Flask/" rel="tag"># Flask</a>
+          
             <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/PIL/" rel="tag"># PIL</a>
+            <a href="/tags/uWSGI/" rel="tag"># uWSGI</a>
+          
+            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
           
         </div>
       
@@ -555,8 +536,8 @@ if __name__ == &apos;__main__&apos;:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/22/Flask-admin使用经验技巧总结/" rel="next" title="Flask-admin使用经验技巧总结">
-                <i class="fa fa-chevron-left"></i> Flask-admin使用经验技巧总结
+              <a href="/2017/03/24/Everymail自动邮件的设计与实现/" rel="next" title="Everymail自动邮件的设计与实现">
+                <i class="fa fa-chevron-left"></i> Everymail自动邮件的设计与实现
               </a>
             
           </div>
@@ -564,10 +545,6 @@ if __name__ == &apos;__main__&apos;:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/05/利用github分支多电脑维护hexo/" rel="prev" title="利用github分支多电脑维护hexo">
-                利用github分支多电脑维护hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -938,7 +915,7 @@ if __name__ == &apos;__main__&apos;:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装pillow-PIL-库"><span class="nav-number">2.</span> <span class="nav-text">安装pillow(PIL)库:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写代码"><span class="nav-number">3.</span> <span class="nav-text">编写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入的库"><span class="nav-number">3.1.</span> <span class="nav-text">导入的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用于替换图片的字符列表："><span class="nav-number">3.2.</span> <span class="nav-text">用于替换图片的字符列表：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RGB值转换字符的函数"><span class="nav-number">3.3.</span> <span class="nav-text">RGB值转换字符的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Image处理图片"><span class="nav-number">3.4.</span> <span class="nav-text">使用Image处理图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成表示字符画的字符串"><span class="nav-number">3.5.</span> <span class="nav-text">生成表示字符画的字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整参考代码"><span class="nav-number">4.</span> <span class="nav-text">完整参考代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行程序"><span class="nav-number">5.</span> <span class="nav-text">运行程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果图"><span class="nav-number">6.</span> <span class="nav-text">效果图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装SSH"><span class="nav-number">2.</span> <span class="nav-text">安装SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh使用"><span class="nav-number">2.2.</span> <span class="nav-text">ssh使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp使用"><span class="nav-number">2.3.</span> <span class="nav-text">scp使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从本地到远程服务器"><span class="nav-number">2.3.1.</span> <span class="nav-text">从本地到远程服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程服务器下载到本地"><span class="nav-number">2.3.2.</span> <span class="nav-text">从远程服务器下载到本地</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Flask"><span class="nav-number">3.</span> <span class="nav-text">配置Flask</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装pip"><span class="nav-number">3.1.</span> <span class="nav-text">安装pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装virtualenv"><span class="nav-number">3.2.</span> <span class="nav-text">安装virtualenv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装flask应用程序依赖包"><span class="nav-number">3.3.</span> <span class="nav-text">安装flask应用程序依赖包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Nginx"><span class="nav-number">4.</span> <span class="nav-text">安装Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">4.1.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx简单指令"><span class="nav-number">4.2.</span> <span class="nav-text">Nginx简单指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装uWSGI"><span class="nav-number">5.</span> <span class="nav-text">安装uWSGI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置uWSGI"><span class="nav-number">5.1.</span> <span class="nav-text">配置uWSGI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uWSGI命令"><span class="nav-number">5.2.</span> <span class="nav-text">uWSGI命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署说明"><span class="nav-number">6.</span> <span class="nav-text">部署说明</span></a></li></ol></div>
             
 
           </div>
