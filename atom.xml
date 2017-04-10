@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.magicroc.com/"/>
-  <updated>2017-04-10T13:59:01.488Z</updated>
+  <updated>2017-04-10T14:03:49.726Z</updated>
   <id>www.magicroc.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python装饰器记录总结(终极版)</title>
+    <title>Python装饰器记录总结</title>
     <link href="www.magicroc.com/2017/04/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E8%AE%B0%E5%BD%95%E6%80%BB%E7%BB%93/"/>
     <id>www.magicroc.com/2017/04/10/Python装饰器记录总结/</id>
     <published>2017-04-10T05:29:33.000Z</published>
-    <updated>2017-04-10T13:59:01.488Z</updated>
+    <updated>2017-04-10T14:03:49.726Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong>装饰器是一个函数,一个用来包装函数的函数，装饰器在函数申明（不需要调用）完成的时候被调用，调用之后返回一个修改之后的函数对象，将其重新赋值原来的标识符，并永久丧失对原始函数对象的访问。对某个方法应用了装饰方法后， 其实就改变了被装饰函数名称所引用的函数代码块入口点，使其重新指向了由装饰方法所返回的函数入口点。</strong></p>
