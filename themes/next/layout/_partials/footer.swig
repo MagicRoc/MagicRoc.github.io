@@ -19,4 +19,11 @@
     NexT.{{ theme.scheme }}
   </a>
 </div>
-{% endif %}
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">{{ totalcount(site) }} Words</span>
+</div>{% endif %}
+
+
